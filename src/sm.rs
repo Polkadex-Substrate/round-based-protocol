@@ -1,4 +1,5 @@
 use std::time::Duration;
+use std::prelude::v1::*;
 
 use serde::{Deserialize, Serialize};
 

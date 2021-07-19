@@ -1,4 +1,5 @@
 use crate::sm::Msg;
+use std::prelude::v1::*;
 
 /// Message container holding received messages
 ///

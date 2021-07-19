@@ -1,4 +1,5 @@
 use thiserror::Error;
+use std::prelude::v1::*;
 
 /// Common error type for [MessageStore](super::MessageStore) implementations in this crate
 #[derive(Debug, PartialEq, Error)]

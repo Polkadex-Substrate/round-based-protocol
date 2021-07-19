@@ -69,6 +69,12 @@
 //! [AsyncSimulation](dev::AsyncSimulation) simulations that can run protocols locally.
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
+#![cfg_attr(not(target_env = "sgx"), no_std)]
+#![cfg_attr(target_env = "sgx", feature(rustc_private))]
+
+#[cfg(not(target_env = "sgx"))]
+#[macro_use]
+extern crate sgx_tstd as std;
 
 pub mod containers;
 
@@ -79,8 +85,8 @@ pub mod dev;
 mod sm;
 pub use sm::*;
 
-#[cfg(feature = "async-runtime")]
-#[cfg_attr(docsrs, doc(cfg(feature = "async-runtime")))]
-pub mod async_runtime;
-#[cfg(feature = "async-runtime")]
-pub use async_runtime::AsyncProtocol;
+// #[cfg(feature = "async-runtime")]
+// #[cfg_attr(docsrs, doc(cfg(feature = "async-runtime")))]
+// pub mod async_runtime;
+// #[cfg(feature = "async-runtime")]
+// pub use async_runtime::AsyncProtocol;
